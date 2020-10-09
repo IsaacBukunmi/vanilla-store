@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vanilla Store</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="logo-section">
+            <img src="./images/vanilla-logo.svg" alt="logo">
+        </div>
+        <ul class="nav-list">
+            <li class="nav-item">Home</li>
+            <li class="nav-item">About</li>
+            <li class="nav-item">Store</li>
+            <li class="nav-item">Services</li>
+            <li class="nav-item">Cart</li>
+        </ul>
+    </nav>
+    <!-- <header>
+        <h1 class="store-title">Vanilla Store</h1>
+        <p class="tagline">Your home of luxurious products...</p>
+    </header> -->
+    <section class="hero-section">
+        <video autoplay muted loop class="hero-video">
+            <source src="./videos/vanilla-video-sm.mp4" type="video/mp4">
+        </video>
+        <div class="hero-caption">
+            <h1 class="store-title">Vanilla Store</h1>
+            <p class="tagline">Your home of luxurious products...</p>
+            <div class="button-container">
+                <button>Shop Now</button>
+            </div>
+        </div>
+    </section>
+    <section class="product-section">
+        <div class="product-header">
+            <h1>Our Products</h1>
+            <p>Explore and browse through series of our many products. Shop for your preference and enjoy</p> 
+        </div>
+        <div class="search-container">
+            <form action="">
+                <input type="text" placeholder="Search through our products">
+                <button>Search</button>
+            </form>
+        </div>
+        <div class="product-list-container" id="product-list">
+            <!-- Product Items goes here -->
+        </div>
+    </section>
+    
+    <script src="script.js"></script>
+</body>
+</html>
