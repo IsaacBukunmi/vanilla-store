@@ -1,4 +1,6 @@
-const productList = document.getElementById("product-list")
+const productList = document.getElementById("product-list");
+const searchInput = document.getElementById("search-input")
+const query = searchInput.value.toLowerCase()
 
 
 // Function to list out all products
@@ -15,10 +17,13 @@ const fetchProducts = () => {
                     <div class="image-container">
                         <img src="${item.image}" alt="">
                     </div>
-                    <p>${item.title}</p>
-                    <p>${item.description}</p>
-                    <p>${item.category}</p>
-                    <p>${item.price}</p>
+                    <div class="content">
+                        <p class="title">${item.title}</p>
+                        <div class="sub-content">
+                            <p class="category">${item.category}</p>
+                            <p class="price">$${item.price}</p>
+                        </div>
+                    </div>
                 </div>
             `
         ))
@@ -30,3 +35,26 @@ const fetchProducts = () => {
 
 // Calling the function. Calling the function here would run the function immediately the web page is opened
 fetchProducts();
+
+//Function to search for product
+const searchProducts = () => {
+    fetch("https://fakestoreapi.com/products")
+    .then(res => res.json())
+    .then(data => {
+        for(let i=0; i < data.length; i++){
+            // console.log(data[i])
+            titleFilter = data[i].title
+            // console.log(titleFilter.toLowerCase())
+            if (titleFilter.toLowerCase().indexOf(query) > -1){
+                console.log(titleFilter)
+            }else{
+                console.log(null)
+            }
+        }
+    })
+}
+
+// searchProducts();
+
+//Event Listener
+searchInput.addEventListener('keyup', searchProducts)
