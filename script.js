@@ -1,7 +1,11 @@
 const productList = document.getElementById("product-list");
 const searchInput = document.getElementById("search-input");
 const form = document.getElementById("form");
+const addIcon = document.getElementById("add-icon");
+const categoryItem = document.querySelectorAll('.category-item')
 let productItemList = [];
+
+
 
 // Function to list out all products
 const fetchProducts = () => {
@@ -35,7 +39,7 @@ const displayProducts = (products) => {
         `
             <div class="product-item">
                 <div class="image-container">
-                    <div class="add-icon">
+                    <div class="add-icon" id="add-icon">
                         <img src="/images/plus-icon.svg"/>
                     </div>
                     <img src="${product.image}" alt="">
@@ -68,6 +72,26 @@ const searchProducts = (e) => {
     displayProducts(searchedItem)
 }
 
+// Function to display product category
+const categoryProducts = (e) => {
+    console.log(e.target.innerText.toLowerCase())
+    const categoryName = e.target.innerText.toLowerCase();
+    
+    const categorizedProducts = productItemList.filter((item) => {
+        return(
+            item.category.toLowerCase().includes(categoryName)
+        )
+    });
+    
+    displayProducts(categorizedProducts)
+}
+
+
+
+const addToCart = () => {
+    
+}
+
 //Calling the function.
 fetchProducts();
 
@@ -78,57 +102,6 @@ form.addEventListener("submit" , function(e){
 //Event Listener
 searchInput.addEventListener('keyup', searchProducts)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//Function to search for product
-// const searchProducts = () => {
-//     fetch("https://fakestoreapi.com/products")
-//     .then(res => res.json())
-//     .then(data => {
-//         for(let i=0; i < data.length; i++){
-//             // console.log(data[i])
-//             titleFilter = data[i].title
-//             // console.log(titleFilter.toLowerCase())
-//             if (titleFilter.toLowerCase().indexOf(query) > -1){
-//                 console.log(titleFilter)
-//             }else{
-//                 console.log(null)
-//             }
-//         }
-//     })
-// }
-
-// searchProducts();
-
-
+categoryItem.forEach((item) => (
+    item.addEventListener('click', categoryProducts)
+))

@@ -21,6 +21,35 @@ nav{
     color:#FFFFFF;
 }
 
+nav .menu{
+    width:35px;
+    height:28px;
+    cursor: pointer;
+}
+
+.menu .bar{
+    height:5px;
+    width:100%;
+    background-color:#FFFFFF;
+    display:block;
+    border-radius: 5px;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: space-between; */
+}
+
+.menu #first-bar{
+    transform: translateY(2px)
+}
+
+.menu #second-bar{
+    transform: translateY(6px)
+}
+
+.menu #third-bar{
+    transform: translateY(10px)
+}
+
 .logo-section{
    
 }
@@ -170,6 +199,7 @@ p.tagline{
     grid-gap:20px; */
     margin:0 auto;
     margin-top:10vh;
+    align-items: center;
 }
 
 .product-item{
@@ -197,6 +227,7 @@ p.tagline{
     position: relative;
     padding-left:20px;
     padding-right: 20px;
+    padding-bottom:20px;
 }
 
 .product-item .image-container .add-icon{
@@ -221,12 +252,13 @@ p.tagline{
 }
 
 .product-item .content{
-    /* background-color:#e9a8ed; */
+    background-color:#e9a8ed;
     padding:20px;
     color:#5C0051;
     display:flex;
     flex-direction: column;
     justify-content: space-between;
+    border-radius:0 0 19px 19px;
 }
 
 /* .product-item .content .sub-content{
@@ -256,12 +288,76 @@ p.tagline{
     clear: both;
 }
 
+.category-container{
+    display: flex;
+    /* justify-content: space-around; */
+    overflow: auto;
+    margin-top:50px;
+}
+
+.category-container::-webkit-scrollbar{
+    display:none;
+}
+
+.category-container .category-item{
+    display: flex;
+    align-items: center;
+    background-color: #e9a8ed;
+    padding-left:10px;
+    padding-top:8px;
+    padding-bottom:8px;
+    width:250px;
+    border-radius:10px;
+    cursor: pointer;
+    flex:0 0 auto;
+    margin-right:80px;
+}
+
+.category-container .category-item:last-of-type{
+    margin-right:0px;
+}
+
+.category-container .category-item:hover{
+    transform: scale(1.02);
+    /* transition:  .2s ease-out; */
+}
+
+.category-container .category-item img{
+    width:50px;
+    background-color: #5C0051;
+    border-radius: 50%;
+    padding:5px;
+}
+
+.category-container .category-item p{
+    color: #5C0051;
+    font-weight:600;
+    margin-left:20px;
+    font-size:18px;
+}
+
+@media(max-width:1115px){
+    .category-container .category-item{
+        margin-right:50px;
+    }
+}
+
+
+@media(max-width:990px){
+    .search-container form input[type="text"]{
+        width:70%;
+    }
+}
+
 @media(max-width:730px){
     h1.store-title{
         font-size: 60px;
         letter-spacing: 12px;
     }
     
+    .search-container form input[type="text"]{
+        width:100%;
+    }
 }
 
 
