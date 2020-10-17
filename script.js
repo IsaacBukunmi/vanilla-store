@@ -21,6 +21,8 @@ const toggleHamburgerMenu = () => {
 
 // Function to list out all products
 const fetchProducts = () => {
+    productList.innerHTML = `<p class="loading"> Loading Products, Please wait... </p>`
+
     fetch("https://fakestoreapi.com/products")
     .then(res => res.json())
     .then(data => { 

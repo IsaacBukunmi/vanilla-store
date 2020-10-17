@@ -369,6 +369,13 @@ p.tagline{
     font-size:18px;
 }
 
+.loading{
+    color:#FFFFFF;
+    font-style: italic;
+    margin: 0 auto;
+}
+
+
 @media(max-width:1115px){
     .category-container .category-item{
         margin-right:50px;
