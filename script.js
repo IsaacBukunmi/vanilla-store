@@ -1,10 +1,22 @@
+const hamburgerMenu = document.getElementById("hamburger-menu");
 const productList = document.getElementById("product-list");
 const searchInput = document.getElementById("search-input");
 const form = document.getElementById("form");
 const addIcon = document.getElementById("add-icon");
-const categoryItem = document.querySelectorAll('.category-item')
+const categoryItem = document.querySelectorAll('.category-item');
+const categoryHeader = document.getElementById("category-header");
+const mobileNavList = document.getElementById("mobile-nav-list");
 let productItemList = [];
 
+
+//Function to toggle hamburger menu
+const toggleHamburgerMenu = () => {
+    hamburgerMenu.classList.toggle("toggle-menu")
+    mobileNavList.classList.toggle("toggle-menu")
+
+    // gsap.from('.mobile-nav-list', { duration:.4, y:'-100%', ease:'power1.out'})
+    // gsap.from('.nav-item', {duration:1, opacity:0, delay:.4, stagger:.5})
+}
 
 
 // Function to list out all products
@@ -65,21 +77,22 @@ const searchProducts = (e) => {
     const query = e.target.value.toLowerCase();
     const searchedItem = productItemList.filter((item) => {
         return(
-            item.title.toLowerCase().includes(query) || item.category.toLowerCase().includes(query)
+            item.title.toLowerCase().includes(query)
         )
     });
 
     displayProducts(searchedItem)
 }
 
-// Function to display product category
+// Function to display product by category
 const categoryProducts = (e) => {
     console.log(e.target.innerText.toLowerCase())
     const categoryName = e.target.innerText.toLowerCase();
-    
+    categoryHeader.innerHTML = categoryName;
+
     const categorizedProducts = productItemList.filter((item) => {
         return(
-            item.category.toLowerCase().includes(categoryName)
+            item.category.toLowerCase() === categoryName
         )
     });
     
@@ -100,6 +113,7 @@ form.addEventListener("submit" , function(e){
 })
 
 //Event Listener
+hamburgerMenu.addEventListener('click', toggleHamburgerMenu)
 searchInput.addEventListener('keyup', searchProducts)
 
 categoryItem.forEach((item) => (
